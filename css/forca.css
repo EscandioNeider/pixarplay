@@ -1,0 +1,138 @@
+ body {
+     background-image: url(../img/quarto-andy.jpg);
+     background-attachment: fixed;
+     background-position: center;
+     color: #fff;
+     margin: 0;
+     overflow-x: hidden;
+     overflow-y: hidden;
+     min-height: 100vh;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     font-family: 'Arial', sans-serif;
+ }
+
+ header {
+     background-color: #3a8ea3d3;
+     padding: 10px 0;
+     text-align: center;
+     font-size: 1.2em;
+     margin-bottom: 20px;
+ }
+
+ header a {
+     color: #ffe571;
+     text-decoration: none;
+     font-weight: 700;
+ }
+
+ .game-container {
+     background-color: rgba(0, 0, 0, 0.322);
+     border-radius: 15px;
+     padding: 20px;
+     width: 95%;
+     max-width: 1200px;
+     margin: 20px auto;
+     margin-top: 90px;
+ }
+
+ .hangman-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
+
+ #imagem {
+     max-width: 80vw;
+     max-height: 60vh;
+     margin-bottom: 20px;
+ }
+
+ .keyboard {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 8px;
+     padding: 15px;
+     border-radius: 10px;
+ }
+
+ .keyboard button {
+     width: 40px;
+     height: 40px;
+     font-size: 16px;
+     font-weight: bold;
+ }
+
+ .word-display {
+     font-size: 2rem;
+     letter-spacing: 10px;
+     margin: 20px 0;
+     text-transform: uppercase;
+     min-height: 60px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .game-info {
+     border-radius: 10px;
+     padding: 15px;
+     margin-bottom: 20px;
+ }
+
+ .theme-display {
+     font-size: 1.5rem;
+     font-weight: bold;
+     margin-bottom: 15px;
+     text-align: center;
+     text-transform: uppercase;
+ }
+
+ .stats {
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 15px;
+ }
+
+ .stats div {
+     background-color: rgba(255, 255, 255, 0.2);
+     padding: 10px;
+     border-radius: 5px;
+     text-align: center;
+     flex: 1;
+     margin: 0 5px;
+ }
+
+ .hangman-section {
+     border-radius: 10px;
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 100%;
+ }
+
+ @media (max-width: 768px) {
+     .hangman-container {
+         flex-direction: column;
+     }
+
+     .keyboard {
+         margin-top: 20px;
+     }
+
+     .keyboard button {
+         width: 30px;
+         height: 30px;
+         font-size: 14px;
+     }
+
+     .word-display {
+         font-size: 1.5rem;
+         letter-spacing: 5px;
+     }
+ }

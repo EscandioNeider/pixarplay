@@ -1,0 +1,82 @@
+ :root {
+     --fonte: #ffe0d1;
+     --header_botao: #a1295d;
+     --detalhes: #ca8d46;
+ }
+
+ * {
+     margin: 0;
+     flex-wrap: wrap;
+ }
+
+ body {
+     background-image: url(../img/cenario-2.jpeg);
+     background-size: cover;
+     background-position: center;
+     margin: 0;
+     color: var(--fonte);
+     height: 100vh;
+ }
+
+ header {
+     width: 100%;
+     background-color: var(--header_botao);
+     padding: 10px 0;
+     text-align: center;
+     color: var(--fonte);
+     font-size: 1.2em;
+     margin-bottom: 20px;
+ }
+
+ header a {
+     color: var(--fonte);
+     text-decoration: none;
+     font-weight: 700;
+ }
+
+ input,
+ button,
+ textarea {
+     font-family: Barlow, sans-serif !important;
+ }
+
+ input {
+     width: 100%;
+     max-width: 400px;
+     margin: 0 auto;
+ }
+
+ .custom-input,
+ #resultado {
+     background-color: #b13d6f41;
+     color: var(--fonte);
+     border: 1px solid var(--detalhes);
+     font-weight: 600;
+     border-radius: 25px;
+ }
+
+ .custom-input::placeholder {
+     color: #ffe0d1ab;
+ }
+
+ .custom-btn {
+     background-color: var(--header_botao);
+     color: var(--fonte);
+     border: 1px solid var(--detalhes);
+     font-weight: 700;
+     border-radius: 25px;
+     transition: all 0.3s ease;
+ }
+
+ .custom-btn:hover {
+     background-color: var(--detalhes);
+     color: var(--header_botao);
+     transform: scale(1.05);
+ }
+
+ #resultado {
+     font-size: 1.5rem;
+     margin-top: 20px;
+     padding: 10px 20px;
+     text-align: center;
+ }

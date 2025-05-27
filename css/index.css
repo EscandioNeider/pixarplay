@@ -1,0 +1,104 @@
+:root {
+    --fonte: #ffffff;
+    --header-footer: #6b90b9;
+}
+
+* {
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+main {
+    height: 100vh;
+}
+
+body {
+    font-family: "Tagesschrift", sans-serif;
+}
+
+header {
+    background-color: var(--header-footer);
+    color: var(--fonte);
+}
+
+#bem-vindes {
+    background-image: url(../img/cenario-1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--fonte);
+}
+
+#jogos {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#jogos img {
+    width: 8rem;
+}
+
+#jogo-1,
+#jogo-2,
+#jogo-3,
+#jogo-4 {
+    /* display: grid; */
+    /* grid-template-columns: repeat(2, 1fr); */
+    padding: 10px;
+}
+
+#jogo-1 img,
+#jogo-2 img,
+#jogo-3 img,
+#jogo-4 img {
+    width: 50rem;
+}
+
+
+#jogo-1 {
+    background-image: url(../img/cenario-4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--fonte);
+}
+
+#jogo-2 {
+    background-image: url(../img/cenario-2.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--fonte);
+}
+
+#jogo-3 {
+    background-image: url(../img/cenario-3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--fonte);
+}
+
+#jogo-4 {
+    background-image: url(../img/cenario-5.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--fonte);
+}
+
+footer {
+    background-color: var(--header-footer);
+    color: var(--fonte);
+    padding: 25px;
+}
+
+footer  a{
+    font-style: none;
+    text-decoration: none; /* aaaaaa, esqueci q era esse q tirava a linha de baixoKKKKKKKKKKKKKKKKKKK aí botei font style */
+    color: rgb(245, 210, 10);
+}
