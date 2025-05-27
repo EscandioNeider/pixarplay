@@ -1,0 +1,404 @@
+ :root {
+     --cor-primaria: #ffcb7c;
+     --cor-secundaria: #ecb562;
+     --fundo-escuro: #0a0a0a;
+     --cor-texto: #ffffff;
+     --cor-sombra: #4e3428;
+ }
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ header {
+     background-color: #694f29d3;
+     padding: 10px 0;
+     text-align: center;
+     color: #ffc8ac;
+     font-size: 1.2em;
+     margin-bottom: 20px;
+ }
+
+ header a {
+     color: #ffc8ac;
+     text-decoration: none;
+     font-weight: 700;
+ }
+
+ body {
+     width: 100vw;
+     height: 100vh;
+     overflow: hidden;
+     background-image: url('../img/background-estrada.png');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     user-select: none;
+ }
+
+ .container-jogo {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+ }
+
+ .carro-info {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+  
+  .carro-container:hover .carro-info {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .carro-info h3 {
+    margin-top: 0;
+    color: #ffcc00;
+  }
+  
+  .opcoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+ .linha-estrada {
+     position: absolute;
+     width: 8px;
+     height: 60px;
+     background: linear-gradient(to bottom,
+             rgba(255, 255, 255, 0.9),
+             rgba(255, 255, 255, 0.3));
+     left: 50%;
+     transform: translateX(-50%);
+     border-radius: 4px;
+     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+     animation: movimentoEstrada 2s linear infinite;
+ }
+
+ .jogador {
+     position: absolute;
+     width: 60px;
+     height: 120px;
+     bottom: 15%;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 100;
+     background: linear-gradient(45deg, var(--cor-primaria), #00cc66);
+     border-radius: 15px 15px 5px 5px;
+     box-shadow:
+         0 0 20px var(--cor-sombra),
+         inset 0 -20px 0 rgba(0, 0, 0, 0.3);
+     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+ }
+
+ .jogador::before {
+     content: '';
+     position: absolute;
+     top: 10px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 40px;
+     height: 30px;
+     background: rgba(255, 255, 255, 0.2);
+     border-radius: 8px;
+     border: 2px solid rgba(255, 255, 255, 0.4);
+ }
+
+ .carro-inimigo {
+     position: absolute;
+     width: 60px;
+     height: 120px;
+     z-index: 99;
+     border-radius: 5px 5px 15px 15px;
+     box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+     transition: transform 0.1s ease;
+ }
+
+ .carro-inimigo.tipo-1 {
+     background: linear-gradient(45deg, #ff7231, #dd5c11);
+ }
+
+ .carro-inimigo.tipo-2 {
+     background: linear-gradient(45deg, #fff344, #c9cc00);
+ }
+
+ .carro-inimigo.tipo-3 {
+     background: linear-gradient(45deg, #4aff44, #11cc00);
+ }
+
+ .carro-inimigo.tipo-4 {
+     background: linear-gradient(45deg, #a544ff, #8100cc);
+ }
+
+ .carro-inimigo::before {
+     content: '';
+     position: absolute;
+     bottom: 10px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 40px;
+     height: 30px;
+     background: rgba(255, 255, 255, 0.2);
+     border-radius: 8px;
+     border: 2px solid rgba(255, 255, 255, 0.4);
+ }
+
+ .controles {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     height: 100%;
+     display: flex;
+     z-index: 200;
+ }
+
+ .botao-controle {
+     flex: 1;
+     background: transparent;
+     border: none;
+     color: rgba(255, 255, 255, 0.1);
+     font-size: 4rem;
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.1s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .botao-controle:active {
+     color: rgba(255, 255, 255, 0.3);
+     transform: scale(1.1);
+ }
+
+ .placar {
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     z-index: 300;
+     text-align: right;
+ }
+
+ .opcoes {
+     display: flex;
+     justify-content: center;
+     gap: 15px;
+     margin: 20px 0;
+     flex-wrap: wrap;
+ }
+
+ .opcoes img {
+     width: 80px;
+     height: 80px;
+     border: 3px solid transparent;
+     border-radius: 10px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     object-fit: contain;
+     background: rgba(255, 255, 255, 0.1);
+     padding: 5px;
+ }
+
+ .opcoes img:hover {
+     border-color: var(--cor-primaria);
+     transform: scale(1.1);
+     box-shadow: 0 0 20px var(--cor-primaria);
+ }
+
+ .opcoes img.selecionado {
+     border-color: var(--cor-secundaria);
+     box-shadow: 0 0 25px var(--cor-secundaria);
+     transform: scale(1.15);
+ }
+
+ .pontuacao,
+ .velocidade {
+     color: var(--cor-texto);
+     font-weight: 700;
+     margin-bottom: 10px;
+     text-shadow: 0 0 10px var(--cor-sombra);
+ }
+
+ .pontuacao {
+     font-size: 1.2rem;
+ }
+
+ .velocidade {
+     font-size: 1rem;
+     color: var(--cor-primaria);
+ }
+
+ .tela-inicio {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-image: url(../img/cenario-3.jpg);
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     border: 2px solid var(--cor-primaria);
+     border-radius: 20px;
+     padding: 2rem;
+     text-align: center;
+     z-index: 400;
+     box-shadow:
+         0 0 50px #785a43,
+         inset 0 0 20px rgba(0, 0, 0, 0.5);
+     min-width: 350px;
+     backdrop-filter: blur(10px);
+ }
+
+ .tela-inicio h1 {
+     color: var(--cor-primaria);
+     font-size: 2rem;
+     margin-bottom: 1rem;
+     text-shadow: 0 0 20px var(--cor-sombra);
+ }
+
+ .tela-inicio h2 {
+     color: var(--cor-secundaria);
+     font-size: 1.5rem;
+     margin-bottom: 1rem;
+ }
+
+ .tela-inicio p {
+     color: var(--cor-texto);
+     margin-bottom: 1.5rem;
+     line-height: 1.4;
+ }
+
+ .botao {
+     background: linear-gradient(45deg, var(--cor-primaria), #785a43);
+     border: none;
+     color: var(--fundo-escuro);
+     padding: 12px 24px;
+     border-radius: 8px;
+     font-weight: 700;
+     font-size: 1rem;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     text-transform: uppercase;
+     box-shadow: 0 4px 15px #4e3428;
+ }
+
+ .botao:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px #4e3428;
+ }
+
+ .botao:active {
+     transform: translateY(0);
+ }
+
+ .botao:disabled {
+     opacity: 0.5;
+     cursor: not-allowed;
+     transform: none;
+ }
+
+ .oculto {
+     display: none;
+ }
+
+ /* Temas de cores dos carros */
+ .jogador.mcqueen {
+     background: linear-gradient(45deg, #ea3c24, #c5250f);
+ }
+
+ .jogador.sally {
+     background: linear-gradient(45deg, #4169e1, #87ceeb);
+ }
+
+ .jogador.mater {
+     background: linear-gradient(45deg, #8b4513, #daa520);
+ }
+
+ .jogador.chick {
+     background: linear-gradient(45deg, #32cd32, #228b22);
+ }
+
+ .jogador.doc {
+     background: linear-gradient(45deg, #483d8b, #6495ed);
+ }
+
+ /* Animações */
+ @keyframes movimentoEstrada {
+     0% {
+         transform: translateX(-50%) translateY(-100px);
+     }
+
+     100% {
+         transform: translateX(-50%) translateY(100vh);
+     }
+ }
+
+ @keyframes inclinarCarro {
+
+     0%,
+     100% {
+         transform: translateX(-50%) rotateZ(0deg);
+     }
+
+     50% {
+         transform: translateX(-50%) rotateZ(1deg);
+     }
+ }
+
+ @keyframes explosao {
+     0% {
+         transform: scale(1) rotate(0deg);
+         opacity: 1;
+     }
+
+     100% {
+         transform: scale(1.5) rotate(180deg);
+         opacity: 0;
+     }
+ }
+
+ .movendo {
+     animation: inclinarCarro 0.3s ease-in-out;
+ }
+
+ .colisao {
+     animation: explosao 0.5s ease-out forwards;
+ }
+
+ /* Responsividade */
+ @media (max-width: 768px) {
+     .tela-inicio {
+         padding: 1.5rem;
+         min-width: 320px;
+     }
+
+     .tela-inicio h1 {
+         font-size: 1.5rem;
+     }
+
+     .botao-controle {
+         font-size: 3rem;
+     }
+
+     .opcoes img {
+         width: 60px;
+         height: 60px;
+     }
+ }
