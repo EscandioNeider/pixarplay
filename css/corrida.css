@@ -45,6 +45,38 @@
      overflow: hidden;
  }
 
+ .carro-info {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+  
+  .carro-container:hover .carro-info {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .carro-info h3 {
+    margin-top: 0;
+    color: #ffcc00;
+  }
+  
+  .opcoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
  .linha-estrada {
      position: absolute;
      width: 8px;
