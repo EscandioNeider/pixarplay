@@ -177,7 +177,7 @@ function Confere(cLetra) {
 
     if (LAchou == false) {
         iErros++;
-        document.getElementById("imagem").src = "img/forca" + (iErros + 1) + ".png";
+        document.getElementById("imagem").src = "img/forca.png";
     }
 }
 
